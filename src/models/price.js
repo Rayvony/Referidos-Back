@@ -1,23 +1,19 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = {
-  name: "Ticket",
+  name: "Price",
   define: (sequelize) => {
-    const Ticket = sequelize.define("Ticket", {
+    const Price = sequelize.define("Price", {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
-        allowNull: false,
+        defaultValue: 1,
       },
       price: {
         type: DataTypes.DECIMAL(10, 2),
         allowNull: false,
       },
-      sold: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-      },
     });
-    return Ticket;
+    return Price;
   },
 };
