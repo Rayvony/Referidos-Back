@@ -12,6 +12,12 @@ const postReferral = async (req, res) => {
   }
 
   try {
+    const existingType = await Type.findOne({ where: { id: type } });
+
+    if (!existingType) {
+      return res.status(404).json({ message: "Type does not exist" });
+    }
+
     const user = { username, email, password, type };
 
     const newUser = await postUserInDB(user);
