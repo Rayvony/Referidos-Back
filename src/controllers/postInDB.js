@@ -1,4 +1,4 @@
-const { User, Type } = require("../db");
+const { User, Type, Price } = require("../db");
 
 const postUserInDB = async (user) => {
   try {
@@ -29,4 +29,15 @@ const postTypeInDB = async (typeName) => {
   }
 };
 
-module.exports = { postUserInDB, postTypeInDB };
+const postPriceInDB = async (pricePrice) => {
+  try {
+    const newPrice = await Price.create({
+      price: pricePrice,
+    });
+    return newPrice;
+  } catch (error) {
+    throw new Error("Error while creating a new price in the database");
+  }
+};
+
+module.exports = { postUserInDB, postTypeInDB, postPriceInDB };

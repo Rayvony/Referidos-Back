@@ -1,4 +1,4 @@
-const { User, Type } = require("../db");
+const { User, Type, Price } = require("../db");
 
 const getAllUsers = async () => {
   try {
@@ -50,4 +50,16 @@ const getAllTypesFromDB = async () => {
   }
 };
 
-module.exports = { getAllUsers, getUserByID, getAllTypesFromDB };
+const getPriceFromDb = async () => {
+  try {
+    const priceFromDb = await Price.findOne({
+      where: { id: 1 },
+    });
+    return priceFromDb;
+  } catch (error) {
+    console.error("Error while price:", error);
+    throw new Error("Error fetching Price data");
+  }
+};
+
+module.exports = { getAllUsers, getUserByID, getAllTypesFromDB, getPriceFromDb };
