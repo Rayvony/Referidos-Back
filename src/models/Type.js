@@ -6,7 +6,7 @@ module.exports = {
     const Type = sequelize.define("Type", {
       id: {
         type: DataTypes.INTEGER,
-        primaryKey: true, // Puedes usar una función para generar UUIDs aleatorios
+        primaryKey: true,
         allowNull: false,
       },
       name: {
