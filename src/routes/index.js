@@ -1,18 +1,9 @@
-const { getAllReferrals } = require("../handlers/getAllReferrals");
-const { getReferralByID } = require("../handlers/getReferralByID");
-const { getAllTypes } = require("../handlers/getAllTypes");
-const { postReferral } = require("../handlers/postReferral");
-const { postType } = require("../handlers/postType");
-const router = require("express").Router();
+const { router } = require("express");
+const router = Router();
+const referralsRouter = require("./referralsRouter");
+const typesRouter = require("./typesRouter");
 
-router.get("/referidos/", getAllReferrals);
-
-router.get("/referido/:id", getReferralByID);
-
-router.get("/tipos", getAllTypes);
-
-router.post("/referido", postReferral);
-
-router.post("/type", postType);
+router.use(referralsRouter);
+router.use(typesRouter);
 
 module.exports = router;
