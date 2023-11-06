@@ -1,8 +1,8 @@
-const { getPrice } = require("../controllers/getInDB");
+const { getPriceFromDb } = require("../controllers/getInDB");
 
 const getPrice = async (req, res) => {
   try {
-    const referralsDB = await getPrice();
+    const referralsDB = await getPriceFromDb();
     res.status(200).json(referralsDB);
   } catch (error) {
     console.error("Error while getting price:", error);

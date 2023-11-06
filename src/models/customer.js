@@ -1,4 +1,7 @@
 const { DataTypes } = require("sequelize");
+const modelDependencies = {
+  Customer: ["Ticket", "Event", "Price"],
+};
 
 module.exports = {
   name: "Customer",

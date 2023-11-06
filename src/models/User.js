@@ -27,6 +27,16 @@ module.exports = {
         type: DataTypes.STRING,
         allowNull: false,
       },
+
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+
+      lastname: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
       state: {
         type: DataTypes.BOOLEAN,
         allowNull: false,

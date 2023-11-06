@@ -1,5 +1,7 @@
 const { DataTypes } = require("sequelize");
-
+const modelDependencies = {
+  Event: ["Ticket", "User"],
+};
 module.exports = {
   name: "Event",
   define: (sequelize) => {

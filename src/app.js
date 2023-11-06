@@ -1,6 +1,10 @@
 const express = require("express");
+const { conn } = require("./db");
 const server = express();
 const routes = require("./routes/index");
+const morgan = require("morgan");
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 
 server.name = "API";
 
@@ -24,6 +28,12 @@ server.use((err, req, res, next) => {
   const message = err.message || err;
   console.error(err);
   res.status(status).send(message);
+});
+
+server.listen(3001, async () => {
+  console.log("Server listening at port 3001");
+  await conn.sync({ alter: true });
+  console.log("Database connected");
 });
 
 module.exports = server;
